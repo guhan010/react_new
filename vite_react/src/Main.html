@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Temperature</h1>
+    <h2>current temperature = <span class="temp">22</span> deg</h2>
+    <button onclick="increase()">Increase</button>
+    <script>
+      let temperatureElement = document.querySelector(".temp");
+      let temp = parseInt(temperatureElement.textContent);
+      function increase() {
+        temp = temp + 1;
+        temperatureElement.textContent = temp;
+      }
+    </script>
+  </body>
+</html>
