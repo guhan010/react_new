@@ -31,20 +31,33 @@
 //   );
 // }
 // export default App;
-import React, { useState } from "react";
-import Effect from "./Effect";
-import Data from "./Data";
+import React, { createContext, useRef } from "react";
+import Parent from "./components/Parent";
+// import Crud from "./Crud";
+export let MoneyContext = createContext();
 
 const App = () => {
-  const [visible, setVisible] = useState(true);
-  const toggle = () => {
-    setVisible(!visible);
+  const divbox = useRef(null);
+  const amount = 1000;
+  const animate = () => {
+    divbox.current.style.width = "150px";
+    divbox.current.style.backgroundColor = "red";
   };
   return (
     <div>
+      <div
+        ref={divbox}
+        style={{ width: "100px", height: "100px", backgroundColor: "green" }}
+      >
+        .
+      </div>
+      <button onClick={animate}>Animate</button>
       {/* App compoenent <div>{visible ? <Effect /> : "hello"}</div>
       <button onClick={toggle}>{visible ? "umount" : "mount"}</button> */}
-      <Data />
+      {/* <Crud />
+      <MoneyContext.Provider value={amount}>
+        <Parent />
+      </MoneyContext.Provider> */}
     </div>
   );
 };

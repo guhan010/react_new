@@ -20,6 +20,7 @@ router.delete("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
   const data = req.body;
+  console.log(data);
   const newUser = new User(data);
   const saved = await newUser.save();
   res.json(saved);
